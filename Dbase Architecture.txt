@@ -1,0 +1,67 @@
+	1. My SQL Architecture
+		a. Describes components and relationships between components 
+		b. Four Layers of SQL Architecture
+			i. Tools
+				1) Interact with users
+				2) Send queries to processors
+			ii. Processor
+				1) Compiles queries
+				2) Manages connections from users
+			iii. Storage Engine / Storage Mgr
+				1) Executes instructions 
+				2) Manage indexes
+				3) Interacts with file system
+			iv. File System
+				1) Access data on storage media
+		c. Tools
+			i. Connectors / APIs
+			ii. Workbench
+			iii. Utility Programs
+				1) Installation
+				2) Client
+				3) Admin
+				4) Developer
+				5) Misc Tools
+		d. Query Processor
+			i. Manage Connections / Compile Queries
+				1) Connection is a link between tools and processor
+			ii. Query Parser
+				1) Checks for syntactical errors
+			iii. Query Optimizer
+				1) Selects fastest plan
+			iv. Cache Manager
+				1) Stores reusable info / transactions ran
+		e. Storage Engine
+			i. Transaction Mgmt and Data Access
+			ii. Buffer manager
+				1) Retains data blocks for reuse
+					a) Stored in the buffer
+					b) Fixed amount of memory
+				2) LRU algorithm
+					a) Least recently used is out 
+			iii. SQL supports nine storage engines
+		f. File System
+			i. Data stored on storage media
+			ii. User Data
+				1) Tables / indexes
+			iii. Log Files
+				1) Sequential record of each change to a database
+			iv. Data dictionary
+				1) Also a catalog
+				2) Directory of database
+				3) SQL Data dictionary contains roughly 30 built in tables
+	2. Cloud Databases
+		a. Infrastructure As a Service
+			i. IaaS
+				1) Comp processcing, memory and storage media
+					a) AWS
+			ii. Platform as a Service
+				1) PaaS
+					a) Tools / Services as databases, app tools and messaging
+						i) Azure
+			iii. Software as a Service
+				1) SAAS
+					a) Applications through web browsers
+						i) Google Docs, Sheets, etc..
+	3. Distributed Databases
+		

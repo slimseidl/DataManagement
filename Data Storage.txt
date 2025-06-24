@@ -1,0 +1,142 @@
+	1. Storage Media
+		a. Four Dimensions
+			i. Speed
+				1) Access time
+					a) Time to access first byte in a read or write operation
+				2) Transfer Rate
+					a) Speed at which data is read or written
+						i) Following initial access
+			ii. Cost
+				1) Per GB of memory
+			iii. Capacity
+				1) Capacity limited by cost
+			iv. Volatility
+				1) Lost memory without power
+		b. Important Memory
+			i. Main memory
+				1) RAM (Random Access Memory)
+					a) Fast expenseive and limited cap
+				2) Volatile
+			ii. Flash Memory
+				1) SSD (Solid State Drive)
+					a) Less expensive
+					b) Higher capacity than RAM
+					c) Slower than RAM
+			iii. Magnetic Disk
+				1) HDD (Hard Disk Drive)
+					a) Stores large amounts of data
+					b) Slow 
+					c) Inexpensive
+					d) High cap than flash
+				2) Non Volatie
+		c. Sectors Pages and Blocks
+			i. Magnetic disk groups into sectors
+			ii. Flash groups in pages
+			iii. Databases use blocks
+				1) Transfer between main memory and storage media
+				2) Storage controllers convert blocks to pages or blocks to sectors
+		d. Row Oriented Storage
+			i. Store rows within a block
+			ii. Improved query performance
+			iii. Less wasted storage
+		e. Column Orineted Storage
+			i. Each block stores a column
+			ii. Faster data access
+			iii. Better data compression
+	2. Table Structures
+		a. Scheme for organizing rows in blocks
+			i. Heap Tables
+			ii. Sorted
+			iii. Hash
+			iv. Table Cluster
+		b. Heap Tables
+			i. No order imposed on rows
+			ii. First available space in a block is filled with row info
+			iii. Delete rows are marked as free space
+			iv. Best for inserts
+			v. Not good for reading in order
+		c. Sorted Table
+			i. Design indicates a sort column that determines physical order 
+				1) Usually the PK but doesn’t have to be
+			ii. Inserting new rows into the block adjust the table order based upon the new sort column values
+			iii. Changes links rather than moving rows around
+		d. Hash Table
+			i. Rows become buckets
+				1) A block / group of blocks containing rows
+			ii. Initally each bucket has one block
+			iii. Chain of linked blocks when a new block is required
+			iv. Hash Key
+				1) Column(s)
+					a) Usually PK
+			v. Hash Function
+				1) Computes which bucket contain the row with the specified hash key
+			vi. Modulo Function in Hash
+				1) Interprets bits as integers
+				2) Divide integer by number of buckets
+				3) Interpret the remainder as bucket #
+				4) Conver # to address of block with row
+		e. Table Clusters
+			i. Multi Tables
+			ii. Cluster Keys
+				1) Often the PK and FK of another table
+			iii. Work well for specific tables but not others
+	3. Single Level Index
+		a. File containing column values along with pointers to rows containing the column value
+			i. Pointer ID's block containing the row
+		b. CREATE INDEX COMMAND
+		c. Normally sorted on column value
+		d. Can have multiple pointers if Index code is not unique
+		e. Query Processing
+			i. Table Scan
+				1) Reads blocks directly without accessing index
+			ii. Index Scan
+				1) Reads index blocks sequentially to located table blocks
+			iii. Hit Ratio
+				1) % of rows selected
+		f. Binary Search
+			i. Continuously splits index in half until it finds value
+				1) Middle section first
+			ii. Primary / Secondary Indexes
+		g. Primary
+				1) Also called clustering index
+				2) Index on a sorted column
+			i. Seconday
+				1) Non clustering
+				2) Index not on sort column
+			ii. Dense Index
+				1) Entry for every table row
+			iii. Sparse
+				1) Entry for every block
+		h. Insert/Update/Delete
+			i. Inserts
+				1) If full on insert, splits block into two blocks
+			ii. Delete
+				1) When a row is delted, index must be deleted
+					a) Or marked as deleted for processing speed
+			iii. Update
+	4. Multi Level Indexes
+		a. Most commonly used Type
+		b. Stores column values and row pointers in a hierarchy
+			i. Has top level block containing first value
+				1) Goes to next level index
+			ii. Bottom level is always a single level index
+		c. Number of Levels
+			i. Called a fan out
+		d. Faster than single level in most cases
+		e. Balanced Indexes
+			i. Each path is called a branch
+				1) From top level to lower levels
+			ii. Balanced vs. imbalanced 
+				1) Balanced when branches are same length
+	5. Other Indexes
+		a. Hash Indexes
+			i. Index entries assigned to buckets
+		b. Bitmap index
+			i. Grid of bits
+			ii. Each index row corresponds to a unique table row
+			
+		
+			
+			
+				
+			

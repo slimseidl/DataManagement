@@ -1,0 +1,194 @@
+	1. Special Operators and Clauses
+		a. In Operator
+			i. Where clause to determine if a value matches one of several values
+			ii. Epicor In
+				1) Specified Constant List
+		b. Between
+			i. Alternative way to determine if a value is between two other values
+				1) Like >= And <= statement
+		c. Like 
+			i. Matches text against a pattern
+				1) Uses % for
+						i) Epicor Example
+					a) Matching a number of characters
+						i) Like L%t matches Lt, Lot, lift and LOL Cat
+					b) Any number of characters before the characters given, any number after
+						i) 11%11 
+							One. Returns all part numbers that start with 11 and end with 11
+						ii) %11
+							One. Returns all part numbers that end with 11
+								First. Filter out -USED / -R/ - etc…
+				2) Uses _ for 
+					a) Matching exactly one character
+						i) L_t
+							One. Matches Lot and Lit but not Lt or Loot
+						ii) Matches L then any single character then t
+		d. Distinct
+			i. Used with select statement
+			ii. Returns only unique / distinct values
+			iii. Select Distinct
+				1) From ""
+				2) Where ""
+			iv. Selects single value from each
+		e. Order By Clause
+			i. Sorts by selected criteria
+				1) Auto ascending
+			ii. Can use Desc to sort in descending order
+	2. Simple Functions
+		a. ABS - Absolute Value
+		b. Log - Logarithm
+		c. Pow(x,y) - x to the power of y
+		d. Rand() - Random number between 0 / 1
+		e. Round(N, D) - round n to d decimal places
+		f. SQRT - square root
+	3. String functions
+		a. Concat - concatenate
+		b. Lower - LowerCase
+		c. Replace (x, from, to) - returns string x with all occurences of from replace with to
+			i. Like find and replace
+				1) Select Replace ('This and That', 'and', 'or')
+					a) This or That
+		d. Substring (x, pos, len)
+			i. Returns the substring from s that starts at position (pos) and has length (len)
+			ii. X = value
+			iii. POS = start of string to use
+			iv. Len = number of values to use
+		e. Trim - gets rid of trailing / leading spaces
+		f. Upper - uppercase
+	4. Date and Time Functions
+		a. CurDate - Current Date / Time
+		b. Date (expr) / Time(expr) - extracts date or time from a date
+		c. Day(d), Month, year - returns day month or year from date
+		d. DateDiff / Time Diff
+	5. Aggregates
+		a. Count, Sum, Avg, Min, Max
+	6. Group By Clauses
+		a. Group By keyword + 1 or more columns
+		b. Returns one row for each group
+		c. Should be between order by and where clause
+		d. Groups categories together 
+	7. Having Clause
+		a. Used with group by to filter group results
+			i. Follows group by
+				1) Precedes order by
+	8. Aggregate Functions
+		a. Ignore null values
+		b. IGNORES ROWS CONTAINING NULL VALUES
+	9. Join Queries
+		a. Usually faster than subqueries
+		b. Comparing columns from a left table and a right table
+		c. Select statement
+		d. Usually compare foreign key to primary key but doesn’t have to
+		e. Any columns with similar data types can be joined
+		f. Prefixes and Aliases
+			i. Columns sometimes are joined with the same name
+				1) Use an alias
+					a) Prefix
+						i) Table name followed by a period
+					b) Use AS to create an alias
+						i) Column Department AS Group
+							One. Group is the new name
+	10. Inner / Full Joins
+		a. Join clause appears between FROM and ON
+		b. Inner Join 
+			i. Selects only rows that match from both tables left and right
+		c. Full Join Selects all rows, regardless of match
+		d. Join Clauses
+			i. From
+				1) Specifies left table
+			ii. Inner / Full Join Clause
+				1) Specifies right table
+			iii. On Clause
+				1) Specifies columns to joib
+	11. Left / Right Joi
+		a. Left
+			i. All left table rows, but only matching right table rows
+		b. Right
+			i. Vice Versa
+		c. Outer Join
+			i. All rows including left right, full
+	12. Alternate Joins
+		a. Union
+			i. Combines all results into one table from different join statements
+			ii. Used where  a join clause is not
+			iii. Join clauses simplify
+	13. Equijoins / Self Joins / Cross Joins
+		a. Equijoin compares two tables with the = operator
+			i. Most joins are equijoins
+		b. Non equijoins
+			i. Use the > < or similar operators
+		c. Self Join
+			i. Joins a table to itself
+			ii. Commonly compares FK and PK in same table
+		d. Cross Join
+			i. Compares tables without comparing columns
+			ii. Returns all possible combos of rows
+	14. Subqueries
+		a. Nested / Inner Queries
+		b. Used in Where caluse
+			i. Placed in parentheses
+		c. Correlated Queries
+			i. Subquery where clause references a column from the outer query
+		d. Exists Operator
+			i. Used commonly in correlated queries
+				1) Returns true if a subquery selects at least one row
+				2) Returns false if no rows
+			ii. Not Exists
+				1) Opposite
+	15. Flattening Subqueries
+		a. Replacing a subquery with an equivalent join is called flattening a query
+		b. Most queries with in or exists can be flattened
+			i. Add inner join caluses for subquery tab;es
+			ii. Move comparisons between inner and outer queries to ON clauses
+			iii. Add a where caluse with remaining expressions
+			iv. Remove duplicates with select distinct
+	16. Complex Query Examples
+	17. View Tables
+		a. Restructure columns/data types without changes to database design
+		b. CREATE VIEW statement
+		c. Querying Views
+			i. Table specified in veeiw querys from clause 
+				1) Base table
+					a) Always source tables
+		d. Not typically stored, joined with SQL query
+		e. Can exclude sensitive data
+		f. Save complex queires
+		g. Save optimized queries
+		h. Best for reading data
+			i. Not for inserting/udpdating/aggregating
+	18. With Check Option clause
+		a. Prevents inserts into tables that don't satisfy the view query WHERE clause
+	19. Relational Algebra
+		a. Nine Operations 
+			i. Sigma
+				1) Select
+			ii. PI
+				1) Project
+			iii. X 
+				1) Product
+				2) Combines two tables into one result
+				3) Equal to cross join to get all rows / columns combinations
+			iv. Sideways Hour Glass / bowtie
+				1) Joins
+			v. U
+				1) Union
+			vi.  n
+				1) Intersect
+			vii. -
+				1) Difference
+			viii. Rho
+				1) Rename
+			ix. Gamma
+				1) Aggregate
+		
+			
+			
+		
+		
+		
+			
+			
+		
+	
+		
+				

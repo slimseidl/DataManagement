@@ -1,0 +1,212 @@
+	1. Entity-Relationship Model
+		a. Represnentation of requirements
+			i. Ignores implementation details
+			ii. Objects
+				1) Entity
+					a) Often nouns
+					b) Person place product activity or concept
+				2) Relationship
+					a) Often Verbs
+					b) Between two entities
+				3) Attribute
+					a) Often adjectives
+					b) Descriptive property
+		b. ER Diagram
+			i. View of the objects
+		c. Entity Type
+			i. Set of things
+				1) All employees in a company
+		d. Relationship type
+			i. Set of related things
+		e. Attribute Types
+			i. Set of Values
+	2. Database Design
+		a. Three phases
+			i. Analysis
+				1) ER Model
+			ii. Logical Design
+				1) Converst to tables / columns / keys
+			iii. Physical Design
+	3. Discovery
+		a. Names
+			i. Entity names should be a singular noun
+		b. Synonyms
+			i. Can be documented in the glossary
+		c. Part of the analysis phase
+	4. Cardinality
+		a. Maxima / Minima of relations / atrributes
+		b. Maximum
+			i. Greatest number of instances of one entity, that can relate to a single instance of another entity
+			ii. One maxima per entity
+		c. 1 for Singular, M for Many
+		d. Minimum
+			i. Least number of instances
+			ii. Specified as 1 or 0
+			iii. In parentheses next to maxima
+		e. Attribute maximum
+			i. Greatest amount of attribute values that describe an entity
+				1) 1 or M
+		f. Attribute minimum
+			i. Least amount of attribute values to descrive and entity
+			ii. 0 or 1
+		g. Unique Attributes
+			i. One entity instance for each attribute
+			ii. Not the same as singular
+			iii. 1 is unique, M is non unique
+		h. Database Design
+			i. Cardinality depends on business rules
+		i. Cardinality determined in parallel with discovery in analysis phase
+	5. Strong and Weak Entities
+		a. Identiffying attribute
+			i. Unique, singular, required
+			ii. One to One
+		b. Strong Entity
+			i. Has one or more identifying attributes
+				1) May become the primary Key
+		c. Weak Entity
+			i. Does not have an identifying attribute
+			ii. Has an identifying relationship
+				1) To an identifying entity
+				2) 1 to 1
+				3) Has diamond next to the identifying entity
+			iii. Usually defined by a strong entity
+	6. SuperType and SubType Entities
+		a. Sub is an entity of super
+		b. Super usually has many subs
+		c. Attributes of super apply to all subs
+		d. Super identifies sub
+			i. Called an IsA relationship
+	7. Similar Entities and Optional Attributes
+		a. Super and sub often created from
+		b. Similar
+			i. Entities with common attributes and relationships
+		c. Common attributes from entitites can move to a supertype entity
+			i. Non similar values stay as subtypes
+	8. Partitions
+		a. Of a supertype entitty
+			i. Group of mutually exclusive subtype enetities
+			ii. Can have several
+	9. Alternative Modeling Conventions
+		a. Diagram Conventions
+			i. Vary
+		b. Crows Foot Notation
+			i. Cardinality shown as
+				1) A circle
+					a) Zero
+				2) Short Line
+					a) One
+				3) Three short lines
+					a) Many
+			ii. Maximum always right next to the entity
+			iii. Minimum further away from entity but next to maxima
+		c. Model Conventions
+			i. Strong entities as independent
+			ii. Weak as depended
+			iii. Group of related entities called a subject area
+			iv. UML includes ER Models
+	10. Implementing Entities
+		a. Selecting Primary Keys
+			i. Unique and Not Null
+			ii. Stable
+				1) Shouldn’t change
+					a) Or must cascade to match foreign keys
+			iii. Simple
+				1) Easy to type and store
+			iv. Meaningless
+				1) Should not contain descriptive information
+		b. Implementing strong entities
+			i. Single column PK's are best
+			ii. Artificial Keys
+				1) Single column or composite primary key created when no good primary keys are currently available
+		c. Implementing SubType Entities
+			i. Subtype entity becomes a subtype table
+				1) Implementation
+					a) PK is identical to supertype PK
+					b) PK is also an FK that refrences super PK
+		d. Implementing Weak Entities
+			i. Weka entity becomes weak table
+			ii. PK usually composite
+				1) FK refs PK of ID table
+	11. Implement Relationships
+		a. Many to one or One to Many becomes a FK
+			i. FK goes in the table on the many side 
+			ii. FK refs PK on the one side
+			iii. FK name is the PK name with an optional prefix
+				1) Derived from relationship name and clarifies meaning of the the FK
+		b. One to One
+			i. FK can go on either side of relationship 
+				1) Sually placed in table with frewer rows
+			ii. FK refs PK on the opposite side of the relationship
+			iii. FK name is the PK name with optional prefix 
+		c. Many to Many
+			i. Composite Keys
+	12. Implementing Attributes
+		a. Attributes become columns within table
+		b. Plural atts move to a weak tables
+	13. First, Second and Third Normal Form
+		a. Depend On
+			i. Column A depends on Column B 
+				1) Written As
+					a) B ---> A
+			ii. Functional Dependence
+		b. Normal Forms
+			i. Redundancy causes problems
+				1) Occurs when a dependence is on a non unique coolumn
+			ii. Rules for designing tables with less redundancy
+				1) Numbered first through fifth
+			iii. Boyce Codd is an improved version of third normal form
+				1) 6th form
+				2) Most important normal form
+		c. First Normal Form
+			i. Every cell has only one value
+			ii. Table has a primary key
+			iii. Every non key column depends on primary key
+			iv. No duplicate rows
+				1) Different PK in every row
+		d. Second normal form
+			i. All non key columns depend on the whole primary key
+				1) Compisite or not
+			ii. Simple PK is automatically in second normal form
+		e. Third Normal Form
+			i. Non Key columns depend on the whole key and nothing but the key
+		f. Boyce Codd
+			i. Third Normal Form 
+				1) Candidate Key
+					a) Simple or compostie column that is unique and minimal
+						i) May have several
+				2) Non Key
+					a) Column that is not contained in a candiadate key
+			ii. Applies to all columns
+			iii. Column X depends on Column Y
+				1) Column y must be unique
+			iv. Three Steps:
+				1) List all unique columns
+					a) Can be simple or coposite
+					b) Must be minimal
+				2) ID dependencies on non unique columns
+				3) Elimintate dependencies on non unique columns
+	14. Applying Normal Form
+		a. Eliminating redundancy
+			i. Decomposes tables into a higher normal form
+		b. Denormalization
+			i. Merging tables to introduce redundancy
+				1) Faster querying times
+				
+				1. Analysis Phase Steps
+		a. Discovery
+			i. Entities
+			ii. Relationships 
+			iii. Attributes
+		b. Determine Cardinality
+		c. Strong and Weak Entities
+		d. Create super / subtypes
+		
+
+			
+			
+			
+			
+			
+			
+		
+		
