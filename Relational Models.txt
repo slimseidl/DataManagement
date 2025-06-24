@@ -1,0 +1,237 @@
+	1. Database Models
+		a. Three Parts
+			i. Data Structures
+				1) Describe organization of data
+			ii. Operations
+				1) Manipulate Data
+			iii. Rules
+				1) Govern Valid Data
+		b. Hierarchical
+			i. Tree
+				1) Fast / efficient
+		c. Network
+			i. Linked list
+				1) Fast /efficient 
+		d. Relational
+			i. Table
+				1) Productivity / simplicity
+			ii. Oracle
+		e. Object
+			i. Class structure
+			ii. Integration with languages
+		f. Graph
+		g. Document
+			i. XML / JSON
+			ii. Flexible
+			iii. Unstructured data capability
+	2. Relational Structure
+		a. Sets
+			i. Unorderd collectio of elements inside braces
+				1) {a,b,c} and {c,a,b} are the same since it's unordered
+		b. Tuple
+			i. Ordered collection
+		c. Organizes in tables
+			i. Table
+				1) Name, fixed colums, varying sets of rows
+			ii. Column
+				1) Name / data type
+			iii. Row
+				1) Unnamed
+				2) Each value correlates to a column
+			iv. Data type
+	3. Operations
+		a. Select
+			i. Selects a subset of rows of a tabke
+		b. Project
+			i. Eliminates one or more columns
+		c. Product
+			i. Lists all combos of rows of two tables
+		d. Joib
+			i. Combines two tables
+		e. Union
+			i. Selects all rows of two tables
+		f. Intersect
+			i. Selects rows common to two tables
+		g. Difference
+			i. Selects rows that appear in one table but not another
+		h. Rename
+			i. Changes a table names
+		i. Aggregate
+			i. Computes functions over multiple tables rows
+		j. Relational Algebra
+			i. Foundation of SQL
+	4. Relational Rules
+		a. Unique Primary key
+			i. All tables have a primary key column
+		b. Unqie column names
+		c. No duplicate rows
+		d. Business Rules
+			i. Business policy
+	5. Structured Query Language
+		a. Clause
+			i. Groups sql keywords
+		b. Statements
+			i. Command
+			ii. One or more clauses
+				1) Clause on a single line
+		c. All statements must end with a semicolon
+	6. Five Sublanguages
+		a. Data Definition - DDL
+			i. Defines structure of DB
+		b. Data Query - DQL
+			i. Retrieves data
+		c. Data manipulation - DML
+			i. Manipulates
+		d. Data Control - DCL
+			i. Controls user access
+		e. Data Transaction - DTL
+			i. Manages transactions in DB
+		f. Automated script
+			i. Series of SQL statements executed repeatedly
+	7. Managing DB's
+		a. Create / Drop statements
+		b. DB system instance
+			i. Single executing copy of a DB system
+		c. Create DB
+			i. Creates a new DB
+		d. Drop DB
+			i. Deletes a DB completely
+	8. Show Statement
+		a. Info about DB
+			i. Tables columns etc..
+		b. Common show statements
+			i. Show DB's
+				1) Lists DB's available
+			ii. Show tables
+				1) No from clause
+			iii. Show Columns
+				1) Must have a from clause
+			iv. Show Create table
+		c. Use Statement
+			i. Show information about tables within specific DB
+	9. Alter Table Statement
+		a. Adds/deletes/modifies columns on existing table
+			i. Specifies table name
+				1) Caluse indicates whats altered
+			ii. Add 
+			iii. Change
+			iv. Drop
+	10. Transpose
+		a. Rows become colums and vice versa
+	11. DataTypes
+		a. INT
+		b. DECIMAL
+			i. Float / Decimal(1,2)
+		c. Date
+		d. Document
+		e. String
+			i. CHAR
+			ii. VARCHAR
+		f. Signed Number
+			i. May be negative
+		g. Unsigned
+			i. No negatives
+	12. Asterisk Selects all table data with select function
+	13. Limit Clause
+		a. Limits the amount of rows returned by select statement
+	14. Where Clause
+		a. Specifices a condition for selecting rows
+	15. Null / NotNull
+		a. Unknown on inapplicable data for null
+		b. NotNull
+			i. Prevents a column from having a null value
+		c. Comparsion operators
+			i. Return null with either operand is null
+				1) Cant be used to select null values
+	16. IsNull / Is Not Null
+		a. Selects / returns null 
+	17. Null Logic
+		a. True False Null
+	18. Inserting Updating and Deleting Rows
+		a. Insert
+			i. Adds rows to table
+				1) Insert Into
+					a) Into is optional
+				2) Values
+					a) Values to be added
+		b. Columns may be immitted from an insert statement
+			i. Column assigned null value
+		c. Default
+			i. Assings default value to column following the column name / data type
+	19. Update Statement
+		a. Modifies exsiting rows
+			i. Uses the set clause to specify the new colum values
+			ii. Where is optional
+				1) Omitting results in all rows being updated
+	20. Delete Statements
+		a. Delete rows in a table
+		b. From is followed by the table name whose rows are to be delted
+		c. Optional Where clause
+			i. Specification
+				1) Else all deleted
+		d. Truncate
+			i. Delete all rows from table
+	21. Merge Statements
+		a. Selects data from one table (source), and inserts into another called the target
+			i. Not supported by mySQL
+	22. Primary Keys
+		a. Column used to identify a row
+		b. Usually tables first column
+		c. Solid bullet preceds primary key in header
+		d. Used in where clause to select rows
+		e. Cant be null
+		f. Must be unique
+	23. Composite Primary Keys
+		a. Multiple key columns
+	24. Auto Increment Columns
+		a. Assigned an auto incrementing value when new row inserted
+			i. Only works with primary key in MySQL
+	25. Foreign Keys
+		a. Columns / group that refer to the primary key
+		b. Data types must be same as primary but names can be different
+		c. Empty Circle
+		d. Arrow to primary key
+		e. May be repeated and may be null
+		f. Must match some value of primary key
+		g. Can be composite
+		h. Can refer to the primary key in same table
+		i. Keyword
+			i. References
+				1) (Primary key)
+	26. Referential Integrity
+		a. All foreign key values are either NULL or match some primary key values
+		b. Foreign keys must obey this rule
+		c. Violations
+		d. Actions
+			i. Restrict
+				1) Rejects an insert/update/delete
+			ii. Set Null
+				1) Invalid foreighn keys become null
+			iii. Set Default
+				1) Set default values for invalid foreign keys
+			iv. Cascade
+				1) Primary keys change foreign keys
+	27. Constraints
+		a. Allowable values governing
+		b. Cannot violate a constraint
+		c. Not Null
+		d. Default
+		e. Primary / Foreign Keys 
+			i. All constraints
+		f. Column Constraint
+			i. Appears after column name
+				1) Name Not Null
+		g. Table constraint
+			i. Appears in a separate clause
+				1) Foreign / primary keys
+		h. Unique
+			i. Ensures vlaues are unique
+		i. Check Constraint
+			i. Violates rules when false is returned
+		j. Added and dropped with:
+			i. AlterTable Tablename 
+				1) Add Driop Chang Clause
+	28. Labs
+		a. Lab Number 2
+			
+	

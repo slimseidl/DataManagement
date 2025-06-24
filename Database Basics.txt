@@ -1,0 +1,207 @@
+	1. Data
+		a. Information 
+			i. Collect and used for real world scenarios
+		b. Scope of Data
+			i. Amount produced / collected
+		c. Format
+			i. Text
+			ii. Visual
+			iii. Audio
+			iv. Numbers
+		d. Access
+			i. Private vs . Public
+		e. Analog Data
+			i. Traditional / older 
+		f. Digital
+			i. Mostly today 
+				1) Electronic / magnetic
+				2) 0's / 1's
+	2. Databases
+		a. Data stored in
+			i. Structured format
+		b. Database system
+			i. Reads and writes data in a database
+			ii. DBMS
+			iii. Supports a database
+			iv. Usually secures the database
+		c. Query
+			i. Gets / changes data in a database
+		d. Query language
+			i. Programming language for getting data
+		e. Database application
+			i. Software to help users interact with a database
+			ii. Organized in layers
+		f. Roles
+			i. Database administrator
+				1) Security 
+			ii. Designer
+				1) Format / Strucutre of database
+					a) Storage / response time
+			iii. Programmer
+				1) Develops computer programs that use a database
+			iv. User
+				1) Consumer of the data
+					a) Via apps / queries
+	3. File / Database Systems
+		a. Requirements for a database
+			i. Performance
+				1) Fast response times
+				2) Efiiciency
+			ii. Authorization
+				1) Limited access based on the user
+			iii. Secuirty
+				1) Authorized users only
+			iv. Rules
+				1) Data is consistent
+				2) Aligns with business rules
+			v. Recovery
+				1) Return to original state after failure
+				2) Backups
+		b. Database systems have replaced file systems
+		c. File systems consists of text docs and spreadsheets
+	4. Transactions
+		a. A group of queries that must be completed or rejected as a whole
+			i. Process both or neither
+				1) Bank account transfer example
+		b. Ensure transactions are never lost
+		c. Prevent conflicts between concurring transactions
+	5. Architecture
+		a. Internal components and relationship between said components
+		b. Query processors
+			i. Interprets queries
+			ii. Modifies database / gets data
+			iii. Returns results
+		c. Storage Mgr
+			i. Turns query language into low level commands
+		d. Transaction Mgr
+			i. Ensures transactions are properly executed
+			ii. Prevents conflict between simultaneous transactions
+			iii. Restores database in the event of failure
+		e. Log 
+			i. Complete records
+		f. Catalog
+			i. Data dictionary
+				1) Directory of colums / tables / etc
+	6. Metadata
+		a. Data about the database
+			i. Column names
+			ii. Number of Rows
+			iii. Stored in ctalog
+	7. Products
+		a. Relational Database
+			i. Stores data like a spreadsheet
+			ii. Same formatting in columns
+			iii. Rows represent similar data
+				1) Person, place, thing 
+		b. All relational databases support SQL
+		c. NoSQL
+			i. Not Only SQL
+		d. OpenSource
+			i. Anyone can copy / modify without a fee
+	8. Leading Databases
+		a. Oracle
+			i. Relational 
+			ii. Licensed
+		b. MySQL
+			i. Relational / Open Source
+		c. SQL Server - Microsoft
+			i. Relational / Licensed
+		d. Postgre SQL  - OpenSource
+		e. MongoDB
+			i. NoSQL
+	9. Common Queries
+		a. Query
+			i. Command for a database that inserts, gets, writes data etc.. 
+		b. Four Common Queries - CRUD
+			i. Create
+			ii. Read 
+			iii. Update
+			iv. Delete
+		c. Insert
+			i. Adds new data
+		d. Select
+			i. Retrieves Data
+		e. Update
+			i. Changes Data
+		f. Delete
+			i. Removes Data
+		g. Create Table Statement
+			i. Creates a new table
+				1) Specify column and table names
+			ii. Each column is assigned a datatype:
+				1) INT - integer
+				2) Decimal - fractional numeric values
+				3) VARCHAR - text
+				4) DATE - Dates
+			iii. Some types follow by a # in parentheses
+				1) VARCHAR(10)
+					a) 10 characters in text
+				2) Decimal (10,3)
+					a) Decimal, 10 before decimal, 3 after
+			iv. Column names and data types separted by commas
+	10. Analysis
+		a. Database Design
+			i. Spec of DB objects like tables/columns/types/indexes
+		b. Three phases for bigger DB's
+			i. Analysis
+				1) Requirements of DB
+				2) Entities / Relationships / Attributes
+				3) Also called conceptual design
+				4) ER Diagrams
+					a) Entities / Relationship Diagrams
+						i) Rectangles are entities 
+						ii) Lines are relationships
+						iii) Text - attributes / descriptions
+			ii. Logical Design
+				1) Implementation
+					a) Converts ERA into tables columns and keys
+						i) Key
+							One. A column used to ID rows of a table
+						ii) Create table statements
+				2) Table Diagrams
+					a) Rectangles - Tables
+					b) Text - Names 
+					c) Solid Bullets - Key columns
+					d) Empty Bullets / Arrows
+						i) Columns that refer to keys
+				3) Also Called Schema
+			iii. Physical Design
+				1) Specifices how tables are organized / stored
+				2) Indexes - Create Index Functions
+				3) Logical design is more important
+				4) Affects processing speed but npt results
+					a) Called data independence
+						i) Can also be called information independence
+	11. Programming
+		a. SQL lacks programming features
+			i. Not object oriented
+			ii. Use an application programming interface
+				1) API
+					a) Library of procedures that links programming languages to a DB
+			iii. Cursors
+				1) Bridge between SQL and languages
+	12. MySQL
+		a. Sponsored by Oracle
+		b. Two editions
+			i. MySQL Community
+				1) MySQL Sever
+					a) We have this
+					b) Suitable for non commercial uses
+					c) Free
+			ii. MySQL Enterprise
+				1) Additional features
+		c. Command Client
+			i. Execute statements
+			ii. Connect to DB
+			iii. Admin Functions
+			iv. Command prompt window to start
+				1) Cmd
+		d. MySQL Workbench
+			i. SQL commands using an editor
+			ii. Admin Options
+				1) Check status
+				2) Imports /exports
+				3) Stopping the server
+			iii. Schemas
+				1) List of DB's
+			
